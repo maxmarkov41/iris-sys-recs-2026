@@ -22,13 +22,15 @@ https://guides.rubyonrails.org/configuring.html#actiondispatch-hostauthorization
 ```
 https://guides.rubyonrails.org/configuring.html#actiondispatch-hostauthorization
 ```
-
-
-## Commands
-
 ```
 config.hosts << "app:3000" # add app:3000 to ruby's config/environments file
 i've manually added the statement to all the 3 files, ideally an environment variable containing the domains must be passed to the rails application.
+```
+
+## commands
+
+```
+docker-compose up -d
 ```
 
 ## Understanding
