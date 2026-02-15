@@ -25,10 +25,12 @@ services:
       - "3000"
     volumes:
       - .:/app
-      - /app/tmp/pids
     env_file: .env
     # environment:
     #   RAILS_ENV: development
+    environment:
+      # PIDFILE: /tmp/$${HOSTNAME}/server.pid # for puma to stop using shared folder
+      PIDFILE: /tmp/server.pid
     deploy:
       # mode: replicated default is replicated apparently
       replicas: 3
