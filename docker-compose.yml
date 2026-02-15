@@ -13,7 +13,8 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql # volume mapping
   app: 
-    container_name: iris_compose
+    # container_name: iris_compose
+    # we will have to remove container name since replicas are ignored if container_name is present, check resources link 1.
     build:
       context: .
       dockerfile: Dockerfile
@@ -27,8 +28,12 @@ services:
     env_file: .env
     # environment:
     #   RAILS_ENV: development
+    deploy:
+      # mode: replicated default is replicated apparently
+      replicas: 3
     depends_on:
       - db
+      - reverse_proxy
 
   reverse_proxy:
     container_name: iris_reverse_proxy
