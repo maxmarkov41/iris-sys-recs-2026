@@ -38,3 +38,7 @@ colima start
 docker build -t iris .
 docker run iris -d --name instance_1 -p 80:3000
 ```
+
+## Images
+
+![Screenshot](./Screenshot%202026-02-15%20at%2014-59-28%20Action%20Controller%20Exception%20caught.png)
