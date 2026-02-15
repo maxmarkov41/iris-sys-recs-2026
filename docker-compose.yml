@@ -10,7 +10,7 @@ services:
     #   - "3306:3306"
     expose:
       - "3306"
-    volumes:
+    volumes: # named persistence
       - mysql_data:/var/lib/mysql # volume mapping
   app: 
     # container_name: iris_compose
@@ -25,12 +25,10 @@ services:
       - "3000"
     volumes:
       - .:/app
+      - /app/tmp/pids
     env_file: .env
     # environment:
     #   RAILS_ENV: development
-    environment:
-      # PIDFILE: /tmp/$${HOSTNAME}/server.pid # for puma to stop using shared folder
-      PIDFILE: /tmp/server.pid
     deploy:
       # mode: replicated default is replicated apparently
       replicas: 3
@@ -43,7 +41,7 @@ services:
     ports:
       - "80:80"
       - "443:443" # for https
-    volumes:
+    volumes: # bind persistence
       - ./custom-nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
     - app
