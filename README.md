@@ -36,7 +36,9 @@ RUN bundle config --global frozen 1
 ```
 colima start
 docker build -t iris .
-docker run iris -d --name instance_1 -p 80:3000
+docker run iris -d --name instance_1 -p 80:3000 // docker command
+docker-compose up -d // compose command
+
 ```
 
 ## Images
