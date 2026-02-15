@@ -18,8 +18,10 @@ services:
       context: .
       dockerfile: Dockerfile
     stop_signal: SIGINT # https://docs.docker.com/compose/support-and-feedback/faq/#why-do-my-services-take-10-seconds-to-recreate-or-stop
-    ports: 
-      - "8080:3000"
+    # ports: 
+    #   - "8080:3000"
+    expose:
+      - "3000"
     volumes:
       - .:/app
     env_file: .env
@@ -27,5 +29,15 @@ services:
     #   RAILS_ENV: development
     depends_on:
       - db
+
+  reverse_proxy:
+    container_name: iris_reverse_proxy
+    image: nginx
+    ports:
+      - "80:80"
+      - "443:443" # for https
+    volumes:
+      - ./custom-nginx.conf:/etc/nginx/conf.d/default.conf
+
 volumes:
   mysql_data:
