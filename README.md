@@ -1,13 +1,8 @@
 # iris-sys-recs-2026
 
 ## Note
-Unintentionally already implemented using bind and named volumes
+Also Unintentionally already using the docker-compose file
+i mean except the creation of data base inmysql db, but to do that you just run `docker-compose exec app bin/rails db:create`
 
-## resources to explore
- ```
- https://medium.com/@rashmikanethsarani119/docker-data-persistence-understanding-volumes-vs-bind-mounts-be65af175eb0
- ```
+to run all the containers use `docker-compose up -d`
 
- ## Persistance video proof
-
-video can be found in the video folder, here https://github.com/maxmarkov41/iris-sys-recs-2026/blob/task-5/Videos/Screen%20Recording%202026-02-15%20at%2011.41.47%E2%80%AFPM.mov
