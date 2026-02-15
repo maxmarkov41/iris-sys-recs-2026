@@ -27,6 +27,14 @@ Had to make changes to the gemfile for it to compile/bundle, I removed the depen
 ```
 Dependency Caching, i.e the order of commands in the dockerfile matters
 
-```
 RUN bundle config --global frozen 1
+
+```
+
+## Commands
+
+```
+colima start
+docker build -t iris .
+docker run iris -d --name instance_1 -p 80:3000
 ```
